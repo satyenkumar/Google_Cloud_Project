@@ -1,0 +1,7 @@
+source <(kubectl completion bash)
+gcloud config set project boonchu-project
+gcloud config set compute/zone us-west2-a
+gcloud container clusters create boonchu-cluster-1 --num-nodes 2
+gcloud container clusters list
+gcloud container clusters describe boonchu-cluster-1 | grep -E "zone:|location:"
+gcloud compute instances list
