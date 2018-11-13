@@ -1,7 +1,33 @@
 source <(kubectl completion bash)
-gcloud config set project boonchu-project
-gcloud config set compute/zone us-west2-a
-gcloud container clusters create boonchu-cluster-1 --num-nodes 2
+
+LATEST=1.11.2-gke.18
+CLUSTER=boonchu-cluster-1
+PROJECT=boonchu-project
+ZONE=us-west2-a
+
+gcloud config set project ${PROJECT}
+gcloud config set compute/zone ${ZONE}
+
+# default: gcloud container clusters create boonchu-cluster-1 --num-nodes 2
+# machine-type: gcloud compute machine-types list: "n1-standard-1"
+# image-type: gcloud container get-server-config: "COS_CONTAINERD"
+
+gcloud beta container clusters create ${CLUSTER} \
+--cluster-version=${LATEST} \
+--machine-type=n1-standard-1 \
+--image-type=COS \
+--num-nodes=1 \
+--enable-autorepair \
+--enable-autoscaling \
+--enable-autoupgrade \
+--enable-stackdriver-kubernetes \
+--min-nodes=1 \
+--max-nodes=2 \
+--zone=${ZONE} \
+--project=${PROJECT} \
+--preemptible \
+--scopes="https://www.googleapis.com/auth/cloud-platform"
+
 gcloud container clusters list
 gcloud container clusters describe boonchu-cluster-1 | grep -E "zone:|location:"
 gcloud compute instances list

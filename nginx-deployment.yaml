@@ -10,7 +10,7 @@ metadata:
   name: nginx
   selfLink: /apis/extensions/v1beta1/namespaces/default/deployments/nginx
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       run: nginx
@@ -34,6 +34,11 @@ spec:
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
+      tolerations:
+      - key: "env"
+        operator: "Equal"
+        value: "dev"
+        effect: "NoSchedule"
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
