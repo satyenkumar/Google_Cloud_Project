@@ -1,0 +1,6 @@
+*.txt
+.ssh*
+.[a-z]*
+README-cloudshell.txt
+udacity*
+gopath*
