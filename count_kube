@@ -1,0 +1,1 @@
+kubectl get pods -o wide | awk '/gke/ || /<none>/ { print $3,$NF }'|sort|uniq -c
