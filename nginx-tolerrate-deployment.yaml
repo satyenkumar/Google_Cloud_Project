@@ -18,7 +18,7 @@ spec:
         ports:
         - containerPort: 80
       tolerations:
-      - key: key1
+      - key: env
         operator: Equal
-        value: value1
+        value: test
         effect: NoSchedule
