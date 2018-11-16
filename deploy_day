@@ -1,6 +1,6 @@
 source <(kubectl completion bash)
 
-LATEST=1.11.2-gke.15
+LATEST=1.11.2-gke.18
 CLUSTER=boonchu-cluster-1
 PROJECT=boonchu-project
 ZONE=us-west2-a
