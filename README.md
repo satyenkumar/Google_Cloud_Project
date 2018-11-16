@@ -20,24 +20,31 @@ https://github.com/kubernetes/kubernetes/issues/48575
 Step 1: upgrade BASH to version 4.x
 
 Upgrade bash to ver. 4+, https://coderwall.com/p/dmuxma/upgrade-bash-on-your-mac-os
+```
 > brew install bash
 > sudo bash -c "echo $(brew --prefix)/bin/bash >> /private/etc/shells"
 > Use system preferences 
 	-> Users & Groups (unlock pref pane) 
 	-> right click on your accountAdvanced Options... and change Login shell option to /usr/local/bin/bash
+```
 
-Step 2: install bash-completion@2
+Step 2: brew install bash-completion@2
+```
 brew install bash-completion@2
+```
 
 Step 3: Run commands
 
+```
 $ kubectl completion bash > ~/.kube/kubectl_autocompletion
+```
 
 Step 4: update .bash_profile
 
+```
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
   . /usr/local/share/bash-completion/bash_completion
 fi
 
 source ~/.kube/kubectl_autocompletion
-
+```
