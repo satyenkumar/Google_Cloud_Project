@@ -3,9 +3,9 @@ Welcome to my GCP
 I am aiming this project to demonstrate how we can use public cloud like GCP or private cloud like VMware to run k8s kubernetes cluster.
 
 Starting from script:
-./deploy_day or ./deploy_night
+./deploy
 
-This script is an example how to select Zone from GCP and populate the 2 instances to be ready. I picked either day or night based on the regional workload. I avoid the case that high demand and I have to wait long time until the VM instances complete.
+This script is an example how to select Zone from GCP and populate the 2 instances to be ready to use. I picked either day or night based on the regional workload. I avoid the case that high demand and I have to wait long time until the VM instances complete.
 
 When you plan to install GCloud in the MACOS:
 
