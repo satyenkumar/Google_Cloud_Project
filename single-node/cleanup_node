@@ -1,0 +1,3 @@
+echo Y|gcloud compute instances delete boonchu-cluster-1
+echo Y|gcloud compute firewall-rules delete default-allow-kubeadm-single-node-cluster
+rm boonchu-cluster-1.conf

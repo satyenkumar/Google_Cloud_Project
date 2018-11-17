@@ -1,0 +1,4 @@
+kubectl cluster-info
+kubectl get nodes
+kubectl describe nodes | grep Taints
+kubectl get pods --all-namespaces

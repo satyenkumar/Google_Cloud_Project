@@ -1,0 +1,4 @@
+kubectl config set-cluster kubernetes \
+  --kubeconfig boonchu-cluster-1.conf \
+  --server https://$(gcloud compute instances describe boonchu-cluster-1 \
+     --format='value(networkInterfaces.accessConfigs[0].natIP)'):6443
