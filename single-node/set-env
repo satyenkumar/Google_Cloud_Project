@@ -1,3 +1,4 @@
+#!/bin/bash 
 source <(kubectl completion bash)
 
 LATEST=1.11.2-gke.18
@@ -5,10 +6,10 @@ CLUSTER=boonchu-cluster-1
 PROJECT=boonchu-project
 
 h=`date|cut -d" " -f4|cut -d: -f1`
-if [ $h -gt 7 -o $h -lt 18 ]; then
+if [ \( $h -gt 7 -a $h -lt 18 \) ]; then
         REGION=us-west2
 	ZONE=us-west2-a
-elif [ $h -gt 0 -o $h -lt 7 -o $h -gt 18 ]; then
+elif [ \( $h -gt 0 -a $h -lt 7 \) -o $h -gt 18  ]; then
         REGION=asia-southeast1
 	ZONE=asia-southeast1-a
 else
@@ -26,5 +27,8 @@ IMAGE=COS_CONTAINERD
 gcloud config set project ${PROJECT}
 gcloud config set compute/region ${REGION}
 gcloud config set compute/zone ${ZONE}
+
+gcloud config get-value compute/zone 
+gcloud config get-value compute/region
 
 export KUBECONFIG=$(PWD)/boonchu-cluster-1.conf
