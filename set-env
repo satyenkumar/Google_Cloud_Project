@@ -5,15 +5,15 @@ CLUSTER=boonchu-cluster-1
 PROJECT=boonchu-project
 
 h=`date|cut -d" " -f4|cut -d: -f1`
-if [ $h -gt 7 -o $h -lt 18 ]; then
+if [ \( $h -gt 7 -a $h -lt 18 \) ]; then
         REGION=us-west2
-	ZONE=us-west2-a
-elif [ $h -gt 0 -o $h -lt 7 -o $h -gt 18 ]; then
+        ZONE=us-west2-a
+elif [ \( $h -gt 0 -a $h -lt 7 \) -o $h -gt 18  ]; then
         REGION=asia-southeast1
-	ZONE=asia-southeast1-a
+        ZONE=asia-southeast1-a
 else
-	echo 'Has problem with reading time.'
-	exit 1
+        echo 'Has problem with reading time.'
+        exit 1
 fi
 
 # default: gcloud container clusters create boonchu-cluster-1 --num-nodes 2
