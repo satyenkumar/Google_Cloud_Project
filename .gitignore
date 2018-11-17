@@ -4,3 +4,7 @@
 README-cloudshell.txt
 udacity*
 gopath*
+certs/*.kubeconfig
+certs/*.pem
+certs/*.json
+certs/*.csr

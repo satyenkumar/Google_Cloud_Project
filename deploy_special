@@ -1,0 +1,11 @@
+PROJECT=boonchu-project
+ZONE=asia-south1-a
+
+gcloud config set project ${PROJECT}
+gcloud config set compute/zone ${ZONE}
+
+# gcloud compute machine-types list --zones asia-south1-a
+
+gcloud beta container node-pools create high-mem-pool --cluster boonchu-cluster-1 \
+    --machine-type n1-highmem-2 \
+    --node-taints=vmspec=highmem:NoSchedule
