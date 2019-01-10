@@ -31,22 +31,19 @@ Upgrade bash to ver. 4+, https://coderwall.com/p/dmuxma/upgrade-bash-on-your-ma
 Step 2: brew install bash-completion@2
 ```
 brew install bash-completion@2
-```
 
-Step 3: Run commands
+# Update .bash_profile
 
-```
-$ kubectl completion bash > ~/.kube/kubectl_autocompletion
-```
-
-Step 4: update .bash_profile
-
-```
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
   . /usr/local/share/bash-completion/bash_completion
 fi
+```
 
-source ~/.kube/kubectl_autocompletion
+Step 3: Install bash completion for 'gcloud'.
+
+```
+$ curl https://raw.githubusercontent.com/google-cloud-sdk/google-cloud-sdk/master/completion.bash.inc \
+  | sudo tee /usr/local/etc/bash_completion.d/gcloud_bash
 ```
 
 #### Links.
