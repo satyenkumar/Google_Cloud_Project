@@ -1,2 +1,0 @@
-gcloud compute scp boonchu-cluster-1:/etc/kubernetes/admin.conf \
-  boonchu-cluster-1.conf

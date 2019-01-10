@@ -1,0 +1,5 @@
+gcloud compute scp kubemaster-1:~/.kube/config /tmp/admin-config
+IP_ADDR=`gcloud compute instances describe kubemaster-1 |grep natIP | cut -d ' ' -f 6`
+echo "replacing IP from kubemaster [$IP_ADDR] to admin-config"
+sed "s/10.168.0.2/${IP_ADDR}/" /tmp/admin-config > admin-config
+export KUBECONFIG=/Users/bigchoo/Documents/Google_Cloud_Project/provisioning/admin-config

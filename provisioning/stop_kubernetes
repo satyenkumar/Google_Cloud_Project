@@ -1,0 +1,9 @@
+echo Y|gcloud compute addresses delete external-lb
+echo Y|gcloud compute firewall-rules delete default-allow-kubeadm-multi-node-cluster
+echo Y|gcloud compute firewall-rules delete default-allow-internal
+echo Y|gcloud compute routes delete default-route-10-168-0-3-24
+
+for host in kubemaster-1 kubenode-1 ; do
+  gcloud compute instances stop $host
+done
+

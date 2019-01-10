@@ -1,0 +1,25 @@
+#!/bin/bash 
+
+for host in kubemaster-1 kubenode-1 ; do
+    gcloud beta compute instances create "${host}" \
+        --can-ip-forward \
+        --image-family ubuntu-1604-lts \
+        --image-project ubuntu-os-cloud \
+        --machine-type n1-standard-4 \
+        --scopes cloud-platform,logging-write \
+        --metadata kubernetes-version=1.11.2-gke.18 \
+        --tags kubeadm-multi-node-cluster 
+done
+# HELP (options):
+#  --image-family ubuntu-1404-lts  ubuntu-1604-lts ubuntu-1804-lts ubuntu-1810 \
+#  --metadata-from-file startup-script=startup.sh \
+
+gcloud compute firewall-rules create default-allow-internal \
+  --allow tcp,udp,icmp \
+  --target-tags kubeadm-multi-node-cluster \
+  --source-ranges 10.168.0.0/24,10.244.0.0/16
+
+gcloud beta compute firewall-rules create default-allow-kubeadm-multi-node-cluster \
+  --allow tcp:6443 \
+  --target-tags kubeadm-multi-node-cluster \
+  --source-ranges 0.0.0.0/0

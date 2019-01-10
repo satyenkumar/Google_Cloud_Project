@@ -1,0 +1,3 @@
+gcloud compute addresses create external-lb \
+  --region $(gcloud config get-value compute/region)
+gcloud compute addresses list --filter="name=('external-lb')"

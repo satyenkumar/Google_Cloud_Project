@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: ghost-db
+  name: ghost-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: ghost-db
+  template:
+    metadata:
+      labels:
+        run: ghost-db
+    spec:
+      containers:
+      - image: mysql:5.7
+        name: ghost-db
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "mysqlroot"
+        volumeMounts:
+        - mountPath: "/var/lib/mysql"
+          name: ghost-db-volume-disk
+      volumes:
+      - name: ghost-db-volume-disk
+        persistentVolumeClaim:
+          claimName: local-pvc-2
