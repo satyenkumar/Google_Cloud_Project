@@ -1,17 +1,10 @@
 #### Welcome to my Google Certified Professional.
 
-I am aiming this project to demonstrate how we can use public cloud like GCP or private cloud like VMware to run k8s kubernetes cluster.
+When you plan to install GCloud SDK.
 
-Starting from script:
-./deploy
+#### 1. DOWNLOAD GCLOUD SDK for macOS. ####
 
-This script is an example how to select Zone from GCP and populate the 2 instances to be ready to use. I picked either day or night based on the regional workload. I avoid the case that high demand and I have to wait long time until the VM instances complete.
-
-When you plan to install GCloud in the MACOS:
-
-#### 1. DOWNLOAD GCLOUD FOR MACOS ####
-
-Step: google search and install software.
+Step: [Install SDK](https://cloud.google.com/sdk/docs/quickstart-macos)
 
 #### 2. KUBECTL BASH COMPLETION ####
 
