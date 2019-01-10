@@ -1,4 +1,4 @@
-Welcome to my GCP
+#### Welcome to my Google Certified Professional.
 
 I am aiming this project to demonstrate how we can use public cloud like GCP or private cloud like VMware to run k8s kubernetes cluster.
 
@@ -48,3 +48,9 @@ fi
 
 source ~/.kube/kubectl_autocompletion
 ```
+
+#### Links.
+
+- [GCloud Developer Ref.](https://cloud.google.com/sdk/gcloud/reference/)
+- [Google API Explorer Compute Instances.](https://developers.google.com/apis-explorer/#s/compute/v1/)
+- [Choose the right options for GDP compute.](https://cloud.google.com/blog/products/gcp/choosing-the-right-compute-option-in-gcp-a-decision-tree)
